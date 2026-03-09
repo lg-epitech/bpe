@@ -7,3 +7,5 @@ tests/run_tests
 .criterion/
 
 bpe
+
+vgcore.*
