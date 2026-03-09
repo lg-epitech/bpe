@@ -1,8 +1,26 @@
 #include "../include/vocabulary.h"
 #include <unistd.h>
 #include <string.h>
+#include <inttypes.h>
 
-int main(void) {
+#define OPTIONAL_ARGS \
+    OPTIONAL_STRING_ARG(arg_input, "", "-i", "input", "The input to encode.") \
+    OPTIONAL_ULONG_LONG_ARG(capacity, DEFAULT_VOCABULARY_CAPACITY, "-c", "capacity", "The vocabulary capacity")
+
+#define BOOLEAN_ARGS \
+    BOOLEAN_ARG(use_stdin, "-s", "Use stdin as input.") \
+    BOOLEAN_ARG(help, "--help", "Show program usage.")
+
+#include "../include/easyargs.h"
+
+int main(int argc, char **argv) {
+    args_t args = make_default_args();
+
+    if (!parse_args(argc, argv, &args) || args.help) {
+        print_help(argv[0]);
+        return 1;
+    }
+
     vocabulary_t *voc = vocabulary_init(getpagesize());
 
     vocabulary_print(voc);

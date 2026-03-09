@@ -1,6 +1,8 @@
 #ifndef VOCABULARY_H_
     #define VOCABULARY_H_
     #include <stdint.h>
+    #include <limits.h>
+    #define DEFAULT_VOCABULARY_CAPACITY ULLONG_MAX
 
 typedef struct {
     uint64_t capacity;
