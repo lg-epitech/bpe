@@ -29,6 +29,7 @@ uint64_t vocabulary_insert(vocabulary_t *voc, char *entry) {
     uint64_t index = voc->size;
 
     if (index == voc->capacity) {
+        free(entry);
         return 0;
     }
     voc->entries[index] = entry;
@@ -43,4 +44,13 @@ void vocabulary_print(vocabulary_t *voc) {
         printf("[INDEX %lu]: %s\n", i, voc->entries[i]);
     }
     printf("---END\n");
+}
+
+bool vocabulary_has(vocabulary_t *voc, char *entry) {
+    for (uint64_t i = 0; i < voc->size; ++i) {
+        if (strcmp(voc->entries[i], entry) == 0) {
+            return true;
+        }
+    }
+    return false;
 }

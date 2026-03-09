@@ -1,8 +1,7 @@
 #ifndef VOCABULARY_H_
     #define VOCABULARY_H_
     #include <stdint.h>
-    #include <limits.h>
-    #define DEFAULT_VOCABULARY_CAPACITY ULLONG_MAX
+    #include <stdbool.h>
 
 typedef struct {
     uint64_t capacity;
@@ -19,5 +18,7 @@ void vocabulary_print(vocabulary_t *voc);
 
 // Takes ownership of the entry
 uint64_t vocabulary_insert(vocabulary_t *voc, char *entry);
+
+bool vocabulary_has(vocabulary_t *voc, char *entry);
 
 #endif /* !VOCABULARY_H_ */
