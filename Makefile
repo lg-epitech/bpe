@@ -18,7 +18,7 @@ all: $(BIN)
 $(BIN): $(OBJ)
 	$(CC) $(OBJ) -o $(BIN) $(CFLAGS)
 
-$(TEST_BIN): $(TEST_OBJ)
+$(TEST_BIN): $(TEST_OBJ) $(TEST_SRC)
 	$(CC) $(TEST_OBJ) $(TEST_FILES) -o $(TEST_BIN) $(CFLAGS) -lcriterion
 
 test: $(TEST_BIN)

@@ -28,7 +28,7 @@ void vocabulary_destroy(vocabulary_t *voc) {
 uint64_t vocabulary_insert(vocabulary_t *voc, char *entry) {
     uint64_t index = voc->size;
 
-    if (index - 1 == voc->capacity) {
+    if (index == voc->capacity) {
         return 0;
     }
     voc->entries[index] = entry;

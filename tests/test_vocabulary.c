@@ -44,3 +44,14 @@ Test(vocabulary, insert_stores_entry) {
 
     vocabulary_destroy(voc);
 }
+
+Test(vocabulary, insert_more_than_capacity) {
+    vocabulary_t *voc = vocabulary_init(1);
+
+    vocabulary_insert(voc, strdup("foo"));
+    cr_assert_eq(vocabulary_insert(voc, strdup("foo")), 0);
+
+    cr_assert_eq(voc->size, 1);
+
+    vocabulary_destroy(voc);
+}
