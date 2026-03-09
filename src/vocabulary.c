@@ -1,6 +1,7 @@
 #include "../include/vocabulary.h"
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 vocabulary_t *vocabulary_init(uint64_t capacity) {
     vocabulary_t *voc = (vocabulary_t*)malloc(sizeof(vocabulary_t));
@@ -34,4 +35,12 @@ uint64_t vocabulary_insert(vocabulary_t *voc, char *entry) {
     ++voc->size;
 
     return index;
+}
+
+void vocabulary_print(vocabulary_t *voc) {
+    printf("---VOCABULARY\n");
+    for (uint64_t i = 0; i < voc->size; ++i) {
+        printf("[INDEX %lu]: %s\n", i, voc->entries[i]);
+    }
+    printf("---END\n");
 }

@@ -1,3 +1,9 @@
 *.o
 *.so
 *.a
+
+# Criterion
+tests/run_tests
+.criterion/
+
+bpe

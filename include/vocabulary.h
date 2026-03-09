@@ -13,6 +13,8 @@ vocabulary_t *vocabulary_init(uint64_t capacity);
 
 void vocabulary_destroy(vocabulary_t *voc);
 
+void vocabulary_print(vocabulary_t *voc);
+
 // Takes ownership of the entry
 uint64_t vocabulary_insert(vocabulary_t *voc, char *entry);
 
